@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @comments = Comment.all
 
